@@ -27,40 +27,40 @@ function draw(){
     fill(0);
     textFont("courier new")                   
     textSize(28);
-    text('Press G to start',10,100);
+    text('Press G to start',10,85);
     textSize(48)
     text('TRAFFIC JAM - Louie Zong',10,50)
 
     fft.analyze();
-    level=amp.getLevel();
+    level=amp.getLevel();               // analyzing amplitude + treble
     let treble=fft.getEnergy('treble');
 
-    cheeseSize=map(level,0,1,0,100);
-    trumpetSize=map(treble, 0, 255, 10, 150)
+    cheeseSize=map(level,0,1,0,100);  //map amp w/size
+    trumpetSize=map(treble, 0, 255, 10, 150) // map treble w/size
 
-    image(cheeseImg,width/2,height/2,cheeseSize*4,cheeseSize*4);
+    image(cheeseImg,width/2,height/2,cheeseSize*4,cheeseSize*4);       // making central cheese img
+ 
 
-
-    if(addImage1===true){
+    if(addImage1===true){  //top left trumpet
         image(trumpetImg,200,200,trumpetSize*2,200);
     }
 
-    if(addImage2===true){
+    if(addImage2===true){  // bottom left trumpet
         image(trumpetImg,200,600,trumpetSize*2,200);
     }
     
-    if(addImage3===true){
+    if(addImage3===true){  // top right trumpet
         image(trumpetImg,1400,200,trumpetSize*2,200);
     }
     
-    if(addImage4===true){
+    if(addImage4===true){  // bottom right trumpet
         image(trumpetImg,1400,600,trumpetSize*2,200);
     }
 
 }
 
 
-function keyPressed(){
+function keyPressed(){  // start + pause
     if(key === 'g') {
     if(jamPlay.isPlaying()){
         jamPlay.pause();
