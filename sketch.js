@@ -1,4 +1,5 @@
 let jamPlay, fft, amp, level, cheeseSize, trumpetSize, cheeseImg, trumpetImg, addImage1, addImage2, addImage3, addImage4, cheeseLocation;
+let hue = 0;
 
 function preload(){
     jamPlay=loadSound('assets/LouieZongTRAFFICJAM.mp3');
@@ -22,7 +23,8 @@ function setup(){
 }
 
 function draw(){
-    background(220,220,120);
+    background(hue,220,120);
+    hue+=0.5 // slow colour transition 
 
     fill(0);
     textFont("courier new")                   
