@@ -62,8 +62,13 @@ function draw(){
 
 function keyPressed(){
     if(key === 'g') {
-    jamPlay.play();
+    if(jamPlay.isPlaying()){
+        jamPlay.pause();
+    } else {
+        jamPlay.play();
     }
+    
+}
 }
 
 function makeImage1(){
